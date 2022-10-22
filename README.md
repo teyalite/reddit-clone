@@ -16,3 +16,7 @@ Reddit Clone using fastapi
     ```bash
     pip install -r requirements.txt
     ```
+-   Alembic Initialisation
+    ```bash
+    alembic init alembic
+    ```
