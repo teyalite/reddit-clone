@@ -20,3 +20,7 @@ Reddit Clone using fastapi
     ```bash
     alembic init alembic
     ```
+-   Alembic Autogenerate Revision
+    ```bash
+    alembic revision --autogenerate -m
+    ```
