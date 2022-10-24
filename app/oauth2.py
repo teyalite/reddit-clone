@@ -4,6 +4,8 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 
+from app import models
+
 from .config import settings
 from .schemas import TokenData
 from .database import get_db
@@ -47,4 +49,4 @@ def get_current_user(token: str = Depends(oauth_scheme), db: Session = Depends(g
 
     token_data: TokenData = verify_access_token(token, credentials_exception)
 
-    return token_data
+    return db.query(models.User).filter(models.User.id == token_data.sub).first()

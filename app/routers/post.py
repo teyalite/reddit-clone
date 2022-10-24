@@ -19,6 +19,24 @@ def get_posts(db: Session = Depends(database.get_db)):
     )
 
 
+# Retrieve a post
+@router.get("/{id}", response_model=schemas.PostOut)
+def retrieve_post(id: int, db: Session = Depends(database.get_db)):
+    post = (
+        db.query(models.Post, func.count(models.Vote.post_id).label("votes"))
+        .join(models.Vote, models.Vote.post_id == models.Post.id, isouter=True)
+        .group_by(models.Post.id)
+        .filter(models.Post.id == id)
+        .one_or_none()
+    )
+
+    if not post:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail=f"Post with id={id} not found"
+        )
+    return post
+
+
 # Create a new post
 @router.post("/", status_code=status.HTTP_201_CREATED, response_model=schemas.Post)
 def create_post(
@@ -32,3 +50,25 @@ def create_post(
     db.refresh(post)
 
     return post
+
+
+# Delete a post
+@router.delete("/{id}", status_code=status.HTTP_204_NO_CONTENT)
+def retrieve_post(
+    id: int,
+    db: Session = Depends(database.get_db),
+    current_user: models.User = Depends(oauth2.get_current_user),
+):
+    post_query = db.query(models.Post).filter(models.Post.id == id)
+    post = post_query.first()
+
+    if post == None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail=f"Post with id={id} not found"
+        )
+
+    if post.owner_id != current_user.id:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+
+    post_query.delete(synchronize_session=False)
+    db.commit()
