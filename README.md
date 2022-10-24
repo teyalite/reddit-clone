@@ -1,4 +1,4 @@
-# reddit-clone
+# Reddit Clone
 
 Reddit Clone using fastapi
 
@@ -8,7 +8,7 @@ Reddit Clone using fastapi
     ```bash
     virtualenv venv
     ```
--   Activat virtual environment on MacOs
+-   Activate virtual environment on MacOs/Linux
     ```bash
     source ./venv/bin/activate
     ```
@@ -22,5 +22,5 @@ Reddit Clone using fastapi
     ```
 -   Alembic Autogenerate Revision
     ```bash
-    alembic revision --autogenerate -m
+    alembic revision --autogenerate -m "Message"
     ```

@@ -12,7 +12,8 @@ oauth_scheme = OAuth2PasswordBearer(tokenUrl="auth/login")
 
 # Get the token data, create access token then return the access token
 def create_access_token(data: TokenData):
-    to_encode = data.copy()
+    to_encode = data.dict()
+
     to_encode.update(
         {
             "exp": datetime.utcnow()

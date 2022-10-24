@@ -11,7 +11,7 @@ def login(
     form_data: OAuth2PasswordRequestForm = Depends(),
     db: Session = Depends(database.get_db),
 ):
-    user: models.User = (
+    user = (
         db.query(models.User).filter(models.User.username == form_data.username).first()
     )
 
@@ -22,6 +22,8 @@ def login(
             if not user
             else "Incorrect password",
         )
+
+    print(user.id)
 
     return {
         "access_token": oauth2.create_access_token(
