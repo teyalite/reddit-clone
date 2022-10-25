@@ -60,3 +60,8 @@ class PostUpdate(PostBase):
 class PostOut(BaseModel):
     Post: Post
     votes: int
+
+
+class Vote(BaseModel):
+    post_id: int
+    up_vote: bool

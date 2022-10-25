@@ -23,7 +23,8 @@ def vote(
         )
 
     vote_query = db.query(models.Vote).filter(
-        models.Vote.post_id == vote_data.post_id, models.Vote.user_id == token_data.sub
+        models.Vote.post_id == vote_data.post_id,
+        models.Vote.user_id == current_user.id,
     )
 
     vote = vote_query.first()
