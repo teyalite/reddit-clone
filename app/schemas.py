@@ -53,6 +53,10 @@ class PostCreate(PostBase):
     published: bool = True
 
 
+class PostUpdate(PostBase):
+    published: bool
+
+
 class PostOut(BaseModel):
     Post: Post
     votes: int
