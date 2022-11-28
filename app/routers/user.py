@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
 from .. import models, schemas, utils, database
 
-router = APIRouter(prefix="/users", tags=["Posts"])
+router = APIRouter(prefix="/users", tags=["Users"])
 
 # Create a new user
 @router.post("/", status_code=status.HTTP_201_CREATED, response_model=schemas.UserOut)
