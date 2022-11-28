@@ -2,6 +2,10 @@
 
 Reddit Clone using fastapi
 
+# Docker Image
+
+The docker image for the project can be found here [teyalite/reddit-clone-api](https://hub.docker.com/r/teyalite/reddit-clone-api)
+
 # Commands
 
 -   Virtual environment
