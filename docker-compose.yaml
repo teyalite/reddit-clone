@@ -7,18 +7,24 @@ services:
     ports:
       - 8000:8000
     environment:
-      - DB_HOSTNAME=postgres
-      - DB_USERNAME=postgres
-      - DB_DATABASE=reddit-clone
-      - DB_PORT=5432
-      - DB_PASSWORD=password123
       - JWT_SECRET_KEY=09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7
       - JWT_ALGORITHM=HS256
       - JWT_ACCESS_TOKEN_EXPIRE_MINUTES=30
-
+      - DB_HOSTNAME=${DB_HOSTNAME}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_PORT=${DB_PORT}
+      - DB_PASSWORD=${DB_PASSWORD}
+      # - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      # - JWT_ALGORITHM=${JWT_ALGORITHM}
+      # - JWT_ACCESS_TOKEN_EXPIRE_MINUTES=${JWT_ACCESS_TOKEN_EXPIRE_MINUTES}
+      # - DB_HOSTNAME=postgres
+      # - DB_USERNAME=postgres
+      # - DB_DATABASE=reddit-clone
+      # - DB_PORT=5432
+      # - DB_PASSWORD=password123
     volumes:
       - ./:/usr/src/app:ro
-
 
   postgres:
     image: postgres
@@ -29,4 +35,4 @@ services:
       - postgres-db:/var/lib/postgresql/data
 
 volumes:
-  postgres-db: 
+  postgres-db:

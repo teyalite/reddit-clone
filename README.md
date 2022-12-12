@@ -45,10 +45,22 @@ The docker image for the project can be found here [teyalite/reddit-clone-api](h
         ```bash
         uvicorn app.main:app
         ```
--   Docker
+-   Docker & Kubernetes
+
     -   Interactive mode to run commands inside the container
         ```bash
         docker exec -it container_name bash
+        ```
+    -   Start munikube
+
+        ```bash
+        minikube start
+        ```
+
+    -   Docker compose build without using the cache
+
+        ```bash
+        docker-compose build --no-cache
         ```
 
 # Heroku (Deployment and config files)

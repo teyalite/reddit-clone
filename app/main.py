@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from .routers import auth, user, post, vote
+from .config import settings
 
 # command to run the app: uvicorn app.main:app --reload
 app = FastAPI()
@@ -14,6 +15,8 @@ app.include_router(vote.router)
 
 @app.get("/", response_class=HTMLResponse)
 def index():
+    print(settings)
+
     return """
     <html>
         <head>
