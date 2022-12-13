@@ -63,6 +63,12 @@ The docker image for the project can be found here [teyalite/reddit-clone-api](h
         docker-compose build --no-cache
         ```
 
+    -   Rename docker imageimage
+
+        ```bash
+        docker image tag reddit-clone-api teyalite/reddit-clone-api
+        ```
+
 # Heroku (Deployment and config files)
 
 -   **_runtime.txt_** file contains the python version used for the application development. It'is used to specify a Python runtime for Heroku deployment

@@ -43,7 +43,7 @@ def index():
             }
         </style>
         <body>
-            <h1>Hello, this api was built by <a href='https://github.com/teyalite'>Abdoulkader Haidara</a></h1>
+            <h1>Hi, this api was built by <a href='https://github.com/teyalite'>Abdoulkader Haidara</a></h1>
             <h2><a href='https://github.com/teyalite/reddit-clone'>Source code</a></h2>
         </body>
     </html>
