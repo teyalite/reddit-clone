@@ -2,6 +2,7 @@ version: "3"
 services:
   api:
     build: .
+    # command: bash -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000"
     depends_on:
       - postgres
     ports:
@@ -15,6 +16,11 @@ services:
       - DB_DATABASE=${DB_DATABASE}
       - DB_PORT=${DB_PORT}
       - DB_PASSWORD=${DB_PASSWORD}
+      # - DB_HOSTNAME=postgres
+      # - DB_USERNAME=postgres
+      # - DB_DATABASE=reddit-clone
+      # - DB_PORT=5432
+      # - DB_PASSWORD=password123
     volumes:
       - ./:/usr/src/app:ro
 

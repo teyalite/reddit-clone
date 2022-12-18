@@ -63,10 +63,34 @@ The docker image for the project can be found here [teyalite/reddit-clone-api](h
         docker-compose build --no-cache
         ```
 
-    -   Rename docker imageimage
+    -   Rename docker image
 
         ```bash
         docker image tag reddit-clone-api teyalite/reddit-clone-api
+        ```
+
+    -   Start k8s deployment and service for postgres
+
+        ```bash
+        kubectl apply -f postgres.yaml
+        ```
+
+    -   Start k8s deployment and service for the api
+
+        ```bash
+        kubectl apply -f api.yaml
+        ```
+
+    -   Minikube start the service tunnel
+
+        ```bash
+        minikube service api-service
+        ```
+
+    -   K8s delete deployment
+
+        ```bash
+        kubectl delete deployment postgres-deployment
         ```
 
 # Heroku (Deployment and config files)
