@@ -45,16 +45,12 @@ The docker image for the project can be found here [teyalite/reddit-clone-api](h
         ```bash
         uvicorn app.main:app
         ```
--   Docker & Kubernetes
+-   Docker
 
     -   Interactive mode to run commands inside the container
-        ```bash
-        docker exec -it container_name bash
-        ```
-    -   Start munikube
 
         ```bash
-        minikube start
+        docker exec -it container_name bash
         ```
 
     -   Docker compose build without using the cache
@@ -67,6 +63,14 @@ The docker image for the project can be found here [teyalite/reddit-clone-api](h
 
         ```bash
         docker image tag reddit-clone-api teyalite/reddit-clone-api
+        ```
+
+-   Kubernetes
+
+    -   Start munikube
+
+        ```bash
+        minikube start
         ```
 
     -   Start k8s deployment and service for postgres
@@ -90,7 +94,13 @@ The docker image for the project can be found here [teyalite/reddit-clone-api](h
     -   K8s delete deployment
 
         ```bash
-        kubectl delete deployment postgres-deployment
+        kubectl delete deployment deployment-name
+        ```
+
+    -   K8s interactive mode to execute command inside a container
+
+        ```bash
+        kubectl exec -it pod-name bash
         ```
 
 # Heroku (Deployment and config files)
