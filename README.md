@@ -103,6 +103,12 @@ The docker image for the project can be found here [teyalite/reddit-clone-api](h
         kubectl exec -it pod-name bash
         ```
 
+    -   K8s make ingress available on localhost
+
+        ```bash
+        minikuber tunnel
+        ```
+
 # Heroku (Deployment and config files)
 
 -   **_runtime.txt_** file contains the python version used for the application development. It'is used to specify a Python runtime for Heroku deployment
